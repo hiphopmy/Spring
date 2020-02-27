@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ManageMapper">
+	<!-- select -->
+	<select id="findManageByNo"
+			parameterType="int"
+			resultType="com.dao.Manage">
+		select no,name,age
+		from manage
+		where no=#{no}	
+	</select>
+	
+	<select id="findManageAll"
+			resultType="com.dao.Manage">
+		select no,name,age
+		from manage		
+	</select>
+	
+	<!-- insert -->
+	<insert id="insertManage"
+			parameterType="com.dao.Manage">
+		insert into Manage(no,name,age) values(#{no},#{name},#{age})
+	</insert>
+	
+	<!-- update -->
+	<update id="updateManage"
+			parameterType="com.dao.Manage">
+		update Manage
+		set name = #{name}, age=#{age}
+		where no=#{no}
+	</update>
+	
+	<!-- delete -->
+	<delete id="deleteManage"
+			parameterType="int">
+	 	delete from Manage
+	 	where no=#{no}
+	</delete>
+	
+</mapper>
